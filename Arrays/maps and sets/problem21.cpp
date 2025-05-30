@@ -21,7 +21,7 @@ bool subarrayWithZeroSum(int arr[], int n) {
 
     return false;
 }
-
+  
 int main() {
     int arr[] = {4, 2, -3, 1, 6};
     int n = sizeof(arr) / sizeof(arr[0]);
