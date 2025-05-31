@@ -1,77 +1,74 @@
-
-// Sort an array according to the order defined by another array
-// Input: arr1[] = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8}
-//            arr2[] = {2, 1, 8, 3}
-// Output: arr1[] = {2, 2, 1, 1, 8, 8, 3, 5, 6, 7, 9}
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>
 #include <vector>
 using namespace std;
 
-void relativesort(vector<int>&arr,int a,vector<int>%arr2,int b){
-    //first we weill make a map and will count the frewuency of each element
-    unordered_map<int,int> mapp;
+// Function to sort arr according to the order of arr2
+void relativesort(vector<int>& arr, int a, vector<int>& arr2, int b) {
+    // Map to count the frequency of each element in arr
+    unordered_map<int, int> freq;
 
-    for(int i=0;i<a;i++){
+    for (int i = 0; i < a; i++) {
         freq[arr[i]]++;
     }
 
-    //now we will store the elements of second array in the new vector
-    vector<int>result;
-    for(int i=0;i<b;i++){
+    // Vector to store result in required order
+    vector<int> result;
+
+    // First, insert elements that are present in arr2
+    for (int i = 0; i < b; i++) {
         int num = arr2[i];
-        while(freq[num]>0){
+        while (freq[num] > 0) {
             result.push_back(num);
             freq[num]--;
         }
-        freq.erase(num);
+        freq.erase(num); // Remove processed element
     }
 
-    //now we have to sort the remaining array
-    vector<int>remaining;
-    for(auto& it:freq){
-        while(it.second--  > 0){
+    // Add remaining elements from arr (not in arr2) and sort them
+    vector<int> remaining;
+    for (auto& it : freq) {
+        while (it.second-- > 0) {
             remaining.push_back(it.first);
         }
     }
 
-    sort(remaining.begin(),remaining.end());
-    result.insert(result.end(),remaining.begin(),remaining.end());
+    sort(remaining.begin(), remaining.end());
 
-    arr1= result;
+    // Combine result and remaining
+    result.insert(result.end(), remaining.begin(), remaining.end());
+
+    // Copy result back to arr
+    arr = result;
 }
 
-void printarr(vector<int>&arr){
-    for(int i=0;i<arr.size();i++){
-        cout<<arr[i]<<" ";
+// Utility function to print array
+void printarr(vector<int>& arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
     }
+    cout << endl;
 }
 
-
-int main(){
-    
+int main() {
     int a;
-    cin>>a;
+    cin >> a;
 
-    vector<int>arr(a);
-    for(int i=0;i<a;i++){
-        cin>>v[i];
+    vector<int> arr(a);
+    for (int i = 0; i < a; i++) {
+        cin >> arr[i]; // Fixed typo (was v[i])
     }
 
     int b;
-    cin>>b;
-    vector<int>arr2(b);
-
-    for(int i=0;i<b;i++){
-        cin>>arr2[i];
+    cin >> b;
+    vector<int> arr2(b);
+    for (int i = 0; i < b; i++) {
+        cin >> arr2[i];
     }
 
-    realtivesort(arr,a,arr2,b);
-    printarr(arr,a);
-
-    
-
+    relativesort(arr, a, arr2, b);
+    printarr(arr);
 
     return 0;
 }
