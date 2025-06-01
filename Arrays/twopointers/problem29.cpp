@@ -1,30 +1,42 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-int main(){
-    
-    // 3. Remove Duplicates from a Sorted Array
+
+int main() {
+    // Input the size of the array
     int a;
-    cin>>a;
+    cin >> a;
     
-    int*arr= new int[a];
-    for(int i=0;i<a;i++){
-        cin>>arr[i];
+    // Create a vector of size a
+    vector<int> v(a);
+    
+    // Input the elements of the array
+    for (int i = 0; i < a; i++) {
+        cin >> v[i];
     }
 
-    int i=0;
-    int j=a-1;
+    // Edge case: if the array is empty
+    if (a == 0) {
+        cout << 0;
+        return 0;
+    }
 
-    while(i<j){
-        if(arr[i]==arr[j]){
-            j++;
-        }
-        else{
-            arr[i++]=arr[j];
+    // Two pointers approach
+    int slow = 0;
+    for (int fast = 1; fast < a; fast++) {
+        if (v[slow] != v[fast]) {
+            slow++;
+            v[slow] = v[fast];
         }
     }
-    for(int i=0;i<a;i++){
-        cout<<arr[i]<<" ";
+
+    // Output the length of the array after removing duplicates
+    cout << slow + 1 << endl;
+
+    // Optional: Print the modified array (for clarity)
+    for (int i = 0; i <= slow; i++) {
+        cout << v[i] << " ";
     }
+
     return 0;
-
 }
