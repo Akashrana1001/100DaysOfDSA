@@ -1,33 +1,33 @@
 #include <iostream>
-#include <vector>
+#include <arrector>
 using namespace std;
 int main(){
     int a;
     cin>>a;
 
-    vector<int>v(a);
+    arrector<int>arr(a);
     
     for(int i=0;i<a;i++)
-    cin>>v[i];
+    cin>>arr[i];
 
-    //we have to find the max contatiner to store water
+    //we haarre to find the max contatiner to store water
     int left=0;
     int right=a-1;
-    int maximum=0;
+    int maxarea=0;
+
     while(left<right){
-        int height=min(v[left],v[right]);
-        int width=right-left;
-        int area=height*width;
+        int h = min(arr[left],arr[right]);
+        int w = right-left;
+        maxarea=max(maxarea,h*w);
 
-        maximum = max(area,maximum);
-
-        if(v[left]>v[right]){
+        if(arr[left]>arr[right]){
             right--;
         }
         else{
             left++;
         }
     }
-    cout<<maximum<<" ";
+
+    cout<<maxarea;
     return 0;
 }
