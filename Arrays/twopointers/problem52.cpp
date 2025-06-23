@@ -16,18 +16,16 @@ void findClosestPair(vector<int>& arr1, vector<int>& arr2, int x) {
         int sum = arr1[i] + arr2[j];
         int diff = abs(sum - x);
 
-        // Update result if current diff is smaller
         if (diff < minDiff) {
             minDiff = diff;
             res1 = arr1[i];
             res2 = arr2[j];
         }
 
-        // Move pointers
         if (sum > x)
-            j--;  // sum too big, decrease it
+            j--; 
         else
-            i++;  // sum too small, increase it
+            i++; 
     }
 
     cout << res1 << " and " << res2 << endl;

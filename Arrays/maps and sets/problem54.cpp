@@ -10,7 +10,6 @@ public:
             count += freq[num];
             freq[num]++;
         }
-
         return count;
     }
 };
