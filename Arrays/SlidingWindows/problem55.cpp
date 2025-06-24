@@ -27,7 +27,6 @@ int main(){
             start++;
         }
     }
-
     if(minlen==INT_MAX){
         cout<<0;
     }
