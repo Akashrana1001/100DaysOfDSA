@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//retur first non repeating character
 int main(){
     int a;
     cin>>a;
