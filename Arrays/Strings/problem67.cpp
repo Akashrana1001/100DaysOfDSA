@@ -13,17 +13,15 @@ int main(){
         freq[num]++;
     }
     
-  bool found = false;
-    for (char ch : name) {
-        if (freq[ch] == 1) {
-            cout << ch << endl;
-            found = true;
+    for(char ch:name){
+        if(freq[ch]==1){
+            cout<<ch<<endl;
             break;
         }
-    }
-
-    if (!found) {
-        cout << '$' << endl;
+        if(freq[ch]!=1){
+            cout<<'$';
+            
+        }
     }
     return 0;
 }
