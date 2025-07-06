@@ -7,6 +7,7 @@ string trimLeadingZeros(const string &s) {
     
     size_t firstOne = s.find('1');
     return (firstOne == string::npos) ? "0" : s.substr(firstOne);
+
 }
 
 
