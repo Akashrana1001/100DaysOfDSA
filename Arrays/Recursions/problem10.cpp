@@ -5,12 +5,12 @@ int sumofdigits(int a, int sum)
 {
     if (a == 0)
     {
-        return 0;
+        return sum;
     }
     int digits = a % 10;
-    // sum += digits;
+    sum = (sum*10) +  digits;
     int val = a / 10;
-    return digits + sumofdigits(val,sum);
+    return  sumofdigits(val,sum);
 }
 
 int main()
