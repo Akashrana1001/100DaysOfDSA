@@ -4,15 +4,12 @@ using namespace std;
 
 
 int findmax(int a,vector<int>arr,int i,int max){
-//    cout<<"inside the recrsive functio"<<endl;
     if(i==a){
-        // cout<<"iside the base"<<endl;
-        return max;
+       return max;
 
     }
 
     if(max<arr[i]){
-        // cout<<"inside the max finction"<<endl;
         max=arr[i];
         return findmax(a,arr,i+1,max);
     }
