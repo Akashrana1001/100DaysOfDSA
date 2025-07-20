@@ -25,7 +25,7 @@ int main()
         cin >> vec[i];
     }
     int i = a - 1;
-    if(sorted(vec,i)){
+    if(sorted({1,2,3,4,5},i)){
         cout<<"sorted"<<endl;
     }
     else{
