@@ -22,10 +22,10 @@ void printpattern(int n){
     if(n==0){
         return;
     }
-    printline(n);
-
-    cout<<endl;
+    
     printpattern(n-1);
+    cout<<endl;
+    printline(n);
 }
 
 int main(){
