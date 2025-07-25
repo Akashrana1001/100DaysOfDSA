@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 bool safetomove(vector<vector<int>> &maze, int n, int x, int y, vector<vector<int>> &visited)
 {
     if ((x >= 0 && x < n) && (y >= 0 && y < n) && maze[x][y] == 1 && visited[x][y] == 0)
