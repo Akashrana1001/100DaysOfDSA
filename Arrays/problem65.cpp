@@ -23,7 +23,7 @@ int main(){
         count++;
     }
     
-o    for(int i=k;i<txt.length();i++){
+    for(int i=k;i<txt.length();i++){
         //sabse phle last wale ki freq hta denge us mapmein nse 
         freq2[txt[i-k]]--;
         if(freq2[txt[i-k]]==0){
